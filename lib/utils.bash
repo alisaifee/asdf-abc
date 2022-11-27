@@ -57,7 +57,8 @@ install_version() {
       defs="-Wno-implicit-function-declaration -Wno-return-type"
     fi
 
-    make -f Makefile.unix $defs
+    echo "* Compiling abc"
+    make -f Makefile.unix DEFS="$defs" > /dev/null 2>&1
 
     local tool_cmd
     tool_cmd="abc"
