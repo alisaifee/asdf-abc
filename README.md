@@ -48,9 +48,6 @@ echo 'WRITE root 2' | abc -
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
-
-[Thanks goes to these contributors](https://github.com/alisaifee/asdf-abc/graphs/contributors)!
-
 # License
 
 See [LICENSE](LICENSE) © [Ali-Akber Saifee](https://github.com/alisaifee/)
