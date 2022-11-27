@@ -53,7 +53,7 @@ install_version() {
     fi
 
     echo "* Compiling abc"
-    make -f Makefile.unix DEFS="$defs" > /dev/null 2>&1
+    make -f Makefile.unix DEFS="$defs" >/dev/null 2>&1
 
     local tool_cmd
     tool_cmd="abc"
