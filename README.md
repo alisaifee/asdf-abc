@@ -41,15 +41,13 @@ asdf install abc latest
 asdf global abc latest
 
 # Now abc commands are available
-echo 'WRITE 0' | abc
+echo 'WRITE root 2' | abc -
+1.414213562373095
 ```
 
 Check [asdf](https://github.com/asdf-vm/asdf) readme for more instructions on how to
 install & manage versions.
 
-# Contributing
-
-Contributions of any kind welcome! See the [contributing guide](contributing.md).
 
 [Thanks goes to these contributors](https://github.com/alisaifee/asdf-abc/graphs/contributors)!
 
