@@ -37,6 +37,8 @@ install_version() {
   local install_type="$1"
   local version="$2"
   local install_path="${3%/bin}/bin"
+  local man_path="${3%/bin}/share/man"
+  local lib_path="${3%/bin}/share/lib/abc"
 
   if [ "$install_type" != "version" ]; then
     fail "asdf-$TOOL_NAME supports release installs only"
@@ -44,6 +46,8 @@ install_version() {
 
   (
     mkdir -p "$install_path"
+    mkdir -p "$lib_path"
+    mkdir -p "$man_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     cd $install_path
     local defs=""
@@ -53,7 +57,7 @@ install_version() {
     fi
 
     echo "* Compiling abc"
-    make -f Makefile.unix DEFS="$defs" >/dev/null 2>&1
+    make -f Makefile.unix DESTABC=$install_path DESTLIB=$3/share/lib/abc DESTMAN=$3/share/man DEFS="$defs" install >/dev/null 2>&1
 
     local tool_cmd
     tool_cmd="abc"
