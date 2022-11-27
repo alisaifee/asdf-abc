@@ -48,8 +48,7 @@ install_version() {
     mkdir -p "$install_path"
     mkdir -p "$lib_path"
     mkdir -p "$man_path"
-    cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
-    cd $install_path
+    cd $ASDF_DOWNLOAD_PATH
     local defs=""
     if [[ $(uname) == 'Darwin' ]]; then
       sed -i -s 's/define TERMIO/undef TERMIO/' unix/os.h
