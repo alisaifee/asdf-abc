@@ -51,7 +51,13 @@ install_version() {
     mkdir -p "$install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
     cd $install_path
-    make -f Makefile.unix
+    local defs=""
+    if [[ $(uname) == 'Darwin' ]]; then
+      sed -i -s 's/define TERMIO/undef TERMIO/' unix/os.h
+      defs="-Wno-implicit-function-declaration -Wno-return-type"
+    fi
+
+    make -f Makefile.unix $defs
 
     local tool_cmd
     tool_cmd="abc"
